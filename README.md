@@ -15,3 +15,7 @@ Each Component example starts be using the following Ionic CLI command:
 * CD into the new sample project
 * ionic g page <component-example>
 * ionic g page card-example
+
+
+**Diagram Showing Git Workflow for Project**
+![alt text](https://github.com/brettgpalmer/ionic-component-workshop/blob/master/assets/IonicWorkshop_GitWorkflow.png)
