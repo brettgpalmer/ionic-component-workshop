@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>List Example</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Utah Summit Elevations</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+    <ion-list>
+        <ion-item *ngFor="let item of items" (click)="showGreeting(item.title)">
+            <ion-icon [name]="item.icon" slot="start" ></ion-icon>
+            {{item.title}}
+            <div class="item-note" slot="end" >
+                {{item.elevation | currency: 'Ft. '}}
+            </div>
+        </ion-item>
+    </ion-list>
+    <!--
+      <div *ngIf="selectedItem" padding>
+        You navigated here from <b>{{selectedItem.title }}</b>
+      </div>
+    -->
 </ion-content>
