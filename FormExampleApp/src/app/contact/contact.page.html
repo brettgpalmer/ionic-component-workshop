@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <div text-center>
+        <h3>{{ contact.name }}</h3>
+        <p>{{ contact.email }}</p>
+        <p>{{ contact.phone }} {{ contact.isMobile ? "(mobile)" : "" }}</p>
+        <p>{{ contact.birthdate | date }}</p>
+      </div>
+
+</ion-content>
