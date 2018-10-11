@@ -8,7 +8,7 @@
 
   <div padding>
 
-    <form #form="ngForm" (ngSubmit)="saveContact(form)">
+    <form #form="ngForm">
 
       <ion-item>
         <ion-label position="floating">Name</ion-label>
@@ -20,7 +20,7 @@
         <ion-input type="email" clearInput [(ngModel)]="contact.email" name="email"></ion-input>
       </ion-item>
 
-      <ion-button expand="block" type="submit" margin-top>Save</ion-button>
+      <ion-button expand="block" (click)="saveContact()" margin-top>Save</ion-button>
       <ion-button expand="block" fill="outline" (click)="cancel()" margin-top>Cancel</ion-button>
   
     </form>

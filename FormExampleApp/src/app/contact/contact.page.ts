@@ -24,11 +24,14 @@ export class ContactPage {
   async editContact() {
     const modal = await this.modalController.create({
       component: EditContactPage,
-      componentProps: { contact: this.contact }
+      componentProps: { contact: { ...this.contact } }
     });
     modal.onDidDismiss()
       .then((data) => {
-        console.log(data);
+        if (data.data) {
+          console.log('returned data:', data.data);
+          this.contact = { ...data.data };
+        }
       });
     return await modal.present();
   }

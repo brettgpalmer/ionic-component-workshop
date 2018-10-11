@@ -20,11 +20,13 @@ export class EditContactPage implements OnInit {
   ngOnInit() {
   }
 
-  saveContact(form) {
+  saveContact() {
+    // add validation checks before dismissing
     this.modalController.dismiss(this.contact);
   }
 
-  cancel() {
+  cancel(form) {
+    // reset defaults before dismiss
     this.modalController.dismiss();
   }
 
