@@ -7,11 +7,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+
+  <div text-center>
+    <h3>{{ contact.name }}</h3>
+    <p>{{ contact.email }}</p>
+    <p>{{ contact.phone }} {{ contact.isMobile ? "(mobile)" : "" }}</p>
+    <p>{{ contact.birthdate | date }}</p>
+  </div>
+
 </ion-content>
