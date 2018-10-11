@@ -25,7 +25,7 @@ export class EditContactPage implements OnInit {
     this.modalController.dismiss(this.contact);
   }
 
-  cancel(form) {
+  cancel() {
     // reset defaults before dismiss
     this.modalController.dismiss();
   }
