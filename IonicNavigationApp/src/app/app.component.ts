@@ -29,6 +29,11 @@ export class AppComponent {
       title: 'Page Three',
       url: '/pageThree',
       icon: 'logo-android'
+    },
+    {
+      title: 'Page Four',
+      url: '/pageFour',
+      icon: 'lock'
     }
   ];
 

@@ -13,7 +13,9 @@ const routes: Routes = [
   },
   { path: 'pageOne', loadChildren: './pages/page-one/page-one.module#PageOnePageModule' },
   { path: 'pageTwo', loadChildren: './pages/page-two/page-two.module#PageTwoPageModule' },
-  { path: 'pageThree', loadChildren: './pages/page-three/page-three.module#PageThreePageModule' }
+  { path: 'pageThree', loadChildren: './pages/page-three/page-three.module#PageThreePageModule' },
+  { path: 'pageFour', loadChildren: './pages/page-four/page-four.module#PageFourPageModule' }
+
 ];
 
 @NgModule({
