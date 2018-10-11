@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {AuthGuard} from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +15,11 @@ const routes: Routes = [
   { path: 'pageOne', loadChildren: './pages/page-one/page-one.module#PageOnePageModule' },
   { path: 'pageTwo', loadChildren: './pages/page-two/page-two.module#PageTwoPageModule' },
   { path: 'pageThree', loadChildren: './pages/page-three/page-three.module#PageThreePageModule' },
-  { path: 'pageFour', loadChildren: './pages/page-four/page-four.module#PageFourPageModule' }
+  {
+    path: 'pageFour',
+    loadChildren: './pages/page-four/page-four.module#PageFourPageModule',
+    canActivate: [AuthGuard]
+  }
 
 ];
 
