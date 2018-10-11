@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Edit Contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div padding>
+    <p>{{ contact.name }}</p>
+    <ion-button expand="block" (click)="saveContact()">Save</ion-button>
+    <ion-button expand="block" fill="outline" (click)="cancel()" margin-top>Cancel</ion-button>
+  </div>
+
+</ion-content>

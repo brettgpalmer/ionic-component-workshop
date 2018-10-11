@@ -1,5 +1,7 @@
+import { EditContactPage } from './../edit-contact/edit-contact.page';
 import { Component } from '@angular/core';
 import { Contact } from '../../models/contact.model';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-contact',
@@ -16,8 +18,19 @@ export class ContactPage {
     birthdate: new Date('11-Oct-1988')
   };
 
-  constructor() {
+  constructor(public modalController: ModalController) {
+  }
 
+  async editContact() {
+    const modal = await this.modalController.create({
+      component: EditContactPage,
+      componentProps: { contact: this.contact }
+    });
+    modal.onDidDismiss()
+      .then((data) => {
+        console.log(data);
+      });
+    return await modal.present();
   }
 
 }
