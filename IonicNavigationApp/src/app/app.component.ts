@@ -16,9 +16,19 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Page One',
+      url: '/pageOne',
+      icon: 'logo-angular'
+    },
+    {
+      title: 'Page Two',
+      url: '/pageTwo',
+      icon: 'logo-apple'
+    },
+    {
+      title: 'Page Three',
+      url: '/pageThree',
+      icon: 'logo-android'
     }
   ];
 
