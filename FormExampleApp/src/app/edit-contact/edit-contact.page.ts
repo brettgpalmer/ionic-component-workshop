@@ -20,7 +20,7 @@ export class EditContactPage implements OnInit {
   ngOnInit() {
   }
 
-  saveContact() {
+  saveContact(form) {
     this.modalController.dismiss(this.contact);
   }
 

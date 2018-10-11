@@ -7,9 +7,24 @@
 <ion-content padding>
 
   <div padding>
-    <p>{{ contact.name }}</p>
-    <ion-button expand="block" (click)="saveContact()">Save</ion-button>
-    <ion-button expand="block" fill="outline" (click)="cancel()" margin-top>Cancel</ion-button>
+
+    <form #form="ngForm" (ngSubmit)="saveContact(form)">
+
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input clearInput required [(ngModel)]="contact.name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" clearInput [(ngModel)]="contact.email" name="email"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" margin-top>Save</ion-button>
+      <ion-button expand="block" fill="outline" (click)="cancel()" margin-top>Cancel</ion-button>
+  
+    </form>
+    
   </div>
 
 </ion-content>
