@@ -1,6 +1,15 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+        <ion-button (click)="cancel()" *ngIf="platform.is('ios')">Cancel</ion-button>
+        <ion-button (click)="cancel()" *ngIf="!platform.is('ios')">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+    </ion-buttons>
     <ion-title>Edit Contact</ion-title>
+    <!-- <ion-buttons slot="end">
+        <ion-button (click)="saveContact()">Save</ion-button>
+    </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
@@ -20,8 +29,22 @@
         <ion-input type="email" clearInput [(ngModel)]="contact.email" name="email"></ion-input>
       </ion-item>
 
+      <ion-item>
+        <ion-label position="floating">Phone</ion-label>
+        <ion-input type="phone" clearInput [(ngModel)]="contact.phone" name="phone"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>This phone is mobile</ion-label>
+        <ion-toggle color="secondary" [(ngModel)]="contact.isMobile" name="isMobile"></ion-toggle>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Birthdate</ion-label>
+        <ion-datetime clearInput [(ngModel)]="birthdate" name="birthdate"></ion-datetime>
+      </ion-item>
+
       <ion-button expand="block" (click)="saveContact()" margin-top>Save</ion-button>
-      <ion-button expand="block" fill="outline" (click)="cancel()" margin-top>Cancel</ion-button>
   
     </form>
     
