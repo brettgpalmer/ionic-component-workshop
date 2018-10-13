@@ -21,7 +21,16 @@
 
       <ion-item>
         <ion-label position="floating">Name</ion-label>
-        <ion-input clearInput required [(ngModel)]="contact.name" name="name"></ion-input>
+        <ion-input [(ngModel)]="contact.name" id="name" #name="ngModel" name="name" class="form-control"
+            clearInput required minlength="4"></ion-input>
+        <ion-text *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+        </ion-text>
       </ion-item>
 
       <ion-item>

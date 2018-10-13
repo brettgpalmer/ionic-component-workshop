@@ -1,0 +1,8 @@
+.error-message {
+    align-self: flex-start;
+    color: var(--ion-color-danger);
+    font-size: .7em;
+    div::before {
+        content: '^';
+    }
+}
