@@ -1,12 +1,14 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
+        <!-- Cancel/Back button stylized for ios/android -->
         <ion-button (click)="cancel()" *ngIf="platform.is('ios')">Cancel</ion-button>
         <ion-button (click)="cancel()" *ngIf="!platform.is('ios')">
           <ion-icon name="arrow-back"></ion-icon>
         </ion-button>
     </ion-buttons>
     <ion-title>Edit Contact</ion-title>
+    <!-- Use the following block if you want the Save button in the header -->
     <!-- <ion-buttons slot="end">
         <ion-button (click)="saveContact()">Save</ion-button>
     </ion-buttons> -->
@@ -17,11 +19,11 @@
 
   <div padding>
 
-    <form #form="ngForm">
+    <form #contactForm="ngForm">
 
       <ion-item>
         <ion-label position="floating">Name</ion-label>
-        <ion-input [(ngModel)]="contact.name" id="name" #name="ngModel" name="name" class="form-control"
+        <ion-input [(ngModel)]="contact.name" #name="ngModel" name="name"
             clearInput required minlength="4"></ion-input>
         <ion-text *ngIf="name.invalid && (name.dirty || name.touched)" class="error-message">
           <div *ngIf="name.errors.required">
@@ -35,12 +37,30 @@
 
       <ion-item>
         <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" clearInput [(ngModel)]="contact.email" name="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="contact.email" #email="ngModel" name="email"
+            clearInput required email></ion-input>
+        <ion-text *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+          <div *ngIf="email.errors.required">
+            Email is required.
+          </div>
+          <div *ngIf="email.invalid && !email.errors.required">
+            Email is not valid.
+          </div>
+        </ion-text>
       </ion-item>
 
       <ion-item>
         <ion-label position="floating">Phone</ion-label>
-        <ion-input type="phone" clearInput [(ngModel)]="contact.phone" name="phone"></ion-input>
+        <ion-input type="phone" clearInput [(ngModel)]="contact.phone" name="phone" #phone="ngModel"
+            required clearInput pattern="^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$"></ion-input>
+        <ion-text *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="error-message">
+          <div *ngIf="phone.errors.required">
+            Phone is required.
+          </div>
+          <div *ngIf="phone.invalid && !phone.errors.required">
+            Phone is not valid.
+          </div>
+        </ion-text>
       </ion-item>
 
       <ion-item>
@@ -53,7 +73,8 @@
         <ion-datetime clearInput [(ngModel)]="birthdate" name="birthdate"></ion-datetime>
       </ion-item>
 
-      <ion-button expand="block" (click)="saveContact()" margin-top>Save</ion-button>
+      <ion-button expand="block" (click)="saveContact()" margin-top 
+          [disabled]="contactForm.invalid">Save</ion-button>
   
     </form>
     
