@@ -7,4 +7,14 @@
 <ion-content padding>
   The world is your oyster.
   <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+
+  <div *ngIf="afAuth.user | async as user; else showLogin">
+    <h1>Hello {{ user.displayName }}!</h1>
+    <ion-button expand="block" (click)="logout()">Logout</ion-button>
+  </div>
+
+  <ng-template #showLogin>
+    <ion-button expand="block" (click)="login()">Login with Google</ion-button>
+  </ng-template>
+
 </ion-content>
