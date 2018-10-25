@@ -13,6 +13,7 @@
       <p>{{ contact.email }}</p>
       <p>{{ contact.phone }} {{ contact.isMobile ? "(mobile)" : "" }}</p>
       <p>{{ contact.birthdate | date }}</p>
+      <p>({{ loggedIn ? '' : 'not ' }} logged in)</p>
 
       <ion-button expand="block" fill="outline" (click)="editContact()">Edit</ion-button>
     </div>

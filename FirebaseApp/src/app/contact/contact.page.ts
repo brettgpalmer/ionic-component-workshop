@@ -1,5 +1,6 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { EditContactPage } from './../edit-contact/edit-contact.page';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact } from '../../models/contact.model';
 import { ModalController } from '@ionic/angular';
 
@@ -8,7 +9,7 @@ import { ModalController } from '@ionic/angular';
   templateUrl: 'contact.page.html',
   styleUrls: ['contact.page.scss']
 })
-export class ContactPage {
+export class ContactPage implements OnInit {
 
   contact: Contact = {
     name: 'Jo Developer',
@@ -17,8 +18,24 @@ export class ContactPage {
     isMobile: true,
     birthdate: new Date('11-Oct-1988')
   };
+  loggedIn: boolean = false;
 
-  constructor(public modalController: ModalController) {
+  constructor(public modalController: ModalController, public afAuth: AngularFireAuth) {
+  }
+
+  ngOnInit(): void {
+    this.afAuth.authState.subscribe(res => {
+      if (res && res.uid) {
+        this.loggedIn = true;
+        this.contact = {...this.contact, name: res.displayName, email: res.email};
+      } else {
+        this.loggedIn = false;
+      }
+    });
+  }
+
+  initContact() {
+
   }
 
   async editContact() {
