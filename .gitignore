@@ -24,3 +24,4 @@ $RECYCLE.BIN/
 Thumbs.db
 FormExampleApp3/
 
+FirebaseApp/src/app/firebaseConfig.ts
