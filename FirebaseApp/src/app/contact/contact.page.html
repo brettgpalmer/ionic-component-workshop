@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+    <div text-center padding>
+      <h3>{{ contact.name }}</h3>
+      <p>{{ contact.email }}</p>
+      <p>{{ contact.phone }} {{ contact.isMobile ? "(mobile)" : "" }}</p>
+      <p>{{ contact.birthdate | date }}</p>
+
+      <ion-button expand="block" fill="outline" (click)="editContact()">Edit</ion-button>
+    </div>
+
+</ion-content>
