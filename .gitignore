@@ -25,3 +25,6 @@ Thumbs.db
 FormExampleApp3/
 
 FirebaseApp/src/app/firebaseConfig.ts
+FirebaseApp/resources/android/
+FirebaseApp/resources/ios/
+
