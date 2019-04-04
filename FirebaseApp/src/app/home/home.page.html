@@ -10,6 +10,7 @@
 
   <div *ngIf="afAuth.user | async as user; else showLogin">
     <h1>Hello {{ user.displayName }}!</h1>
+    <div><ion-img src="{{user.photoURL}}"></ion-img></div>
     <ion-button expand="block" (click)="logout()">Logout</ion-button>
   </div>
 
